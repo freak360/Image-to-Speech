@@ -1,7 +1,6 @@
 from dotenv import find_dotenv, load_dotenv
 from transformers import pipeline
 from langchain.llms import HuggingFaceHub
-from langchain.llms import OpenAI
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 import streamlit as st
@@ -22,7 +21,7 @@ def img2text(url):
 def story(scenario):
     model_id = "mistralai/Mixtral-8x7B-Instruct-v0.1"
     model = HuggingFaceHub(huggingfacehub_api_token=HUGGINGFACEHUB_API_TOKEN,
-                            repo_id=model_id, model_kwargs={"temperature": 0.8, "min_length": 50})
+                            repo_id=model_id, model_kwargs={"temperature": 0.8, "min_length": 50, "max_new_tokens": 100})
     template = """
     you are a story teller;
     you can generate a short story based on simple narrative, the story should be no more than 20 words.
