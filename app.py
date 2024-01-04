@@ -21,10 +21,10 @@ def img2text(url):
 def story(scenario):
     model_id = "mistralai/Mixtral-8x7B-Instruct-v0.1"
     model = HuggingFaceHub(huggingfacehub_api_token=HUGGINGFACEHUB_API_TOKEN,
-                            repo_id=model_id, model_kwargs={"temperature": 0.8, "max_length": 200})
+                            repo_id=model_id, model_kwargs={"temperature": 0.8, "max_length": 60})
     template = """
     you are a story teller;
-    you can generate a short story based on simple narrative, the story should be no more than 20 words.
+    you can generate a short story based on simple narrative.
     CONTEXT: {scenario}
     STORY: 
     """
